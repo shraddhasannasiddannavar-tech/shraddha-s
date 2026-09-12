@@ -2,19 +2,19 @@
 let total = 0;
 
 function addExpense() {
-    let name = document.getElementById("expenseName").value;
-    let amount = Number(document.getElementById("amount").value);
+    const name = document.getElementById("expenseName").value;
+    const amount = Number(document.getElementById("amount").value);
 
     if (name === "" || amount <= 0) {
-        alert("Please enter expense name and amount");
+        alert("Please enter a valid expense");
         return;
     }
 
-    total += amount;
+    total = total + amount;
 
     document.getElementById("total").textContent = total;
 
-    let item = document.createElement("li");
+    const item = document.createElement("li");
     item.textContent = name + " - ₹" + amount;
 
     document.getElementById("expenseList").appendChild(item);
