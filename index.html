@@ -1,23 +1,28 @@
-let total = 0;
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Expense Tracker</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
 
-function addExpense() {
-    const name = document.getElementById("expenseName").value;
-    const amount = Number(document.getElementById("amount").value);
+<body>
 
-    if (name === "" || amount <= 0) {
-        alert("Please enter a valid expense");
-        return;
-    }
+    <div class="container">
 
-    total = total + amount;
+        <h1>💰 My Expense Tracker</h1>
 
-    document.getElementById("total").textContent = total;
+        <input id="name" type="text" placeholder="Expense name">
 
-    const item = document.createElement("li");
-    item.textContent = name + " - ₹" + amount;
+        <input id="amount" type="number" placeholder="Amount">
 
-    document.getElementById("expenseList").appendChild(item);
+        <button id="addButton">Add Expense</button>
 
-    document.getElementById("expenseName").value = "";
-    document.getElementById("amount").value = "";
-}
+        <h2>Total: ₹<span id="total">0</span></h2>
+
+        <div id="expenses"></div>
+
+    </div>
+
+</body>
+</html>
