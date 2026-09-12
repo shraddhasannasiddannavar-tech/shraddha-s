@@ -1,24 +1,34 @@
 
 let total = 0;
 
-function addExpense() {
-    const name = document.getElementById("expenseName").value;
-    const amount = Number(document.getElementById("amount").value);
+const nameInput = document.getElementById("name");
+const amountInput = document.getElementById("amount");
+const addButton = document.getElementById("addButton");
+const totalDisplay = document.getElementById("total");
+const expenses = document.getElementById("expenses");
+
+addButton.addEventListener("click", function () {
+
+    const name = nameInput.value;
+    const amount = Number(amountInput.value);
 
     if (name === "" || amount <= 0) {
-        alert("Please enter a valid expense");
+        alert("Please enter a name and amount");
         return;
     }
 
     total = total + amount;
 
-    document.getElementById("total").textContent = total;
+    totalDisplay.textContent = total;
 
-    const item = document.createElement("li");
-    item.textContent = name + " - ₹" + amount;
+    const expense = document.createElement("div");
 
-    document.getElementById("expenseList").appendChild(item);
+    expense.className = "expense";
 
-    document.getElementById("expenseName").value = "";
-    document.getElementById("amount").value = "";
-}
+    expense.textContent = name + " - ₹" + amount;
+
+    expenses.appendChild(expense);
+
+    nameInput.value = "";
+    amountInput.value = "";
+});
