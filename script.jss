@@ -6,20 +6,18 @@ function addExpense() {
     let amount = Number(document.getElementById("amount").value);
 
     if (name === "" || amount <= 0) {
-        alert("Please enter a valid expense");
+        alert("Please enter expense name and amount");
         return;
     }
 
-    total = total + amount;
+    total += amount;
 
     document.getElementById("total").textContent = total;
-
-    let list = document.getElementById("expenseList");
 
     let item = document.createElement("li");
     item.textContent = name + " - ₹" + amount;
 
-    list.appendChild(item);
+    document.getElementById("expenseList").appendChild(item);
 
     document.getElementById("expenseName").value = "";
     document.getElementById("amount").value = "";
